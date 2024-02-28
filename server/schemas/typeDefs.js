@@ -3,13 +3,13 @@ const typeDefs = `
     _id: ID
     username: String
     password: String
-    completedStories: [CompletedStory]
+    stories: [CompletedStory]
   }
 
   type UnfinishedStory {
     _id: ID
     unfinishedText: String
-    blanks: [String]!
+    blanks: [Blank]
   }
 
   type CompletedStory {
@@ -21,6 +21,11 @@ const typeDefs = `
   type Auth {
     token: ID!
     user: User
+  }
+
+  type Blank {
+    _id: ID!
+    blankType: String
   }
 
   type Query {
