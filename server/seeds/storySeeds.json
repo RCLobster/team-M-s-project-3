@@ -15,5 +15,22 @@
                 "type": "noun"
             }
         ]
+    },
+    {
+        "unfinishedText": "The __ __ __ over the __",
+        "blanks": [
+            {
+                "type": "noun"
+            },
+            {
+                "type": "adjective"
+            },
+            {
+                "type": "verb"
+            },
+            {
+                "type": "noun"
+            }
+        ]
     }
 ]
