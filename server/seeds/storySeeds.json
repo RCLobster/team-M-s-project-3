@@ -20,10 +20,10 @@
         "unfinishedText": "The __ __ __ over the __",
         "blanks": [
             {
-                "blankType": "noun"
+                "blankType": "adjective"
             },
             {
-                "blankType": "adjective"
+                "blankType": "noun"
             },
             {
                 "blankType": "verb"
