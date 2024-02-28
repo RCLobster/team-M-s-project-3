@@ -15,7 +15,7 @@ const typeDefs = `
   type CompletedStory {
     _id: ID
     finishedText: String
-    user: User
+    userId: String
   }
 
   type Auth {
