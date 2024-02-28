@@ -3,16 +3,16 @@
         "unfinishedText": "__ __ to the __ to get __",
         "blanks": [
             {
-                "type": "name"
+                "blankType": "name"
             },
             {
-                "type": "verb"
+                "blankType": "verb"
             },
             {
-                "type": "noun"
+                "blankType": "noun"
             },
             {
-                "type": "noun"
+                "blankType": "noun"
             }
         ]
     },
@@ -20,16 +20,16 @@
         "unfinishedText": "The __ __ __ over the __",
         "blanks": [
             {
-                "type": "noun"
+                "blankType": "adjective"
             },
             {
-                "type": "adjective"
+                "blankType": "noun"
             },
             {
-                "type": "verb"
+                "blankType": "verb"
             },
             {
-                "type": "noun"
+                "blankType": "noun"
             }
         ]
     }

@@ -1,4 +1,5 @@
 const db = require('../config/connection');
+const cleanDB = require('./cleanDB')
 const { UnfinishedStory , CompletedStory, User } = require('../models');
 
 const storyData = require('./storySeeds.json');
