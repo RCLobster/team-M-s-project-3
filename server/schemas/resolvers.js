@@ -51,6 +51,22 @@ const resolvers = {
 
             return { token, user };
         },
+        createStory: async (parent, { finishedText }, context) => {
+            if (context.user) {
+                const completedStory = await CompletedStory.create({
+                    finishedText,
+                    userId: context.user._id,
+                });
+
+                await User.findOneAndUpdate(
+                    { _id: context.user._id },
+                    { $addToSet: { stories: completedStory._id } }
+                );
+
+                return completedStory
+            }
+            throw AuthenticationError;
+        },
     },
 };
 
