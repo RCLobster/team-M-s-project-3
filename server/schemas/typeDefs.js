@@ -3,7 +3,7 @@ const typeDefs = `
     _id: ID
     username: String
     password: String
-    completedStory: [CompletedStory]
+    completedStories: [CompletedStory]
   }
 
   type UnfinishedStory {
@@ -24,12 +24,18 @@ const typeDefs = `
   }
 
   type Query {
-    user(userId: ID!): User
-    story(storyId: ID!): UnfinishedStory
+    user(username: String!): User
+    users: [User]
+    unfinishedStory(storyId: ID!): UnfinishedStory
+    unfinishedStories: [UnfinishedStory]
+    completedStory(storyId: ID!): CompletedStory
+    completedStories: [CompletedStory]
+    me: User
   }
 
   type Mutation {
     addUser(username: String!, password: String!): Auth
+    login(username: String!, password: String!): Auth
     createStory(finishedText: String!): CompletedStory
   }
 `;
