@@ -2,7 +2,7 @@ const { Schema, model } = require('mongoose');
 
 const completedStorySchema = new Schema({
     finishedText: String,
-    user: { type: Schema.Types.ObjectId, ref: "User" }
+    userid: String
 });
 
 const CompletedStory = model('CompletedStory', completedStorySchema);
