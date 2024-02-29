@@ -8,6 +8,7 @@ const typeDefs = `
 
   type UnfinishedStory {
     _id: ID
+    title: String
     unfinishedText: String
     blanks: [Blank]
   }
