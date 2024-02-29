@@ -35,7 +35,7 @@ const StorySelector = () => {
                         {unfinishedStoryData.map((story) => {
                             return (
                                 <div>
-                                    <UnfinishedStory key={story._id} /*title={story.title} */ />
+                                    <UnfinishedStory key={story._id} title={story.title} />
                                 </div>
                             )
                         })}
