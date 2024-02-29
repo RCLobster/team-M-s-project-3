@@ -10,17 +10,27 @@
     --espresso: #685927;
     --latias: #FF6B6B;
     --black: #000000;
+    --deepgrey: #313131;
     --smoke: #807f7f80;
     --deepsmoke: #807f7fbb;
     --lugia: #dddddd;
 }
 
 .main-body{
-    margin-top: 10vh;
+    height: 100vh;
+    width: 100vw;
+    background-attachment: fixed;
+    background-color: var(--deepsmoke);
+}
+
+.login-window,
+.home,
+.create-story-window,
+.profile-window{
+    padding-top: 10vh;
 }
 
 .login-window{
-    margin-top: 10vh;
     text-align: center;
 }
 
@@ -40,7 +50,7 @@ header{
     position: fixed;
     top: 0;
     width: 100vw;
-    background-color: var(--smoke);
+    background-color: var(--deepgrey);
 }
 
 header a{
@@ -48,19 +58,18 @@ header a{
 }
 
 .home{
-    margin-top: 10vh;
     text-align: center;
 }
 
 #madlibshome{
-    color: black;
+    color: white;
     text-decoration: none;
 }
 
 .nav-link {
     margin: 0 1vw;
     text-decoration: none;
-    color: black;
+    color: white;
     transition: ease-in-out 0.2s;
     font-weight: bold;
 }
