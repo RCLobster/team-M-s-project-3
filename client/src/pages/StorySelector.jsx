@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 import { useMutation, useQuery } from '@apollo/client';
 
 import UnfinishedStory from '../components/UnfinishedStory';
@@ -10,16 +11,8 @@ const StorySelector = () => {
     const { loading, data } = useQuery(QUERY_UNFINISHED_STORIES);
     const unfinishedStoryData = data?.unfinishedStories || [];
 
+    const navigate = useNavigate();
 
-    const handleFormSubmit = async (event) => {
-        event.preventDefault();
-
-        try {
-            navigate(`/create-story/${event.target.key}`);
-        } catch (err) {
-            console.error(err);
-        }
-    };
 
     return (
         <div>
@@ -31,11 +24,13 @@ const StorySelector = () => {
                 {loading ? (
                     <div>Loading...</div>
                 ) : (
-                    <form onSubmit={handleFormSubmit}>
+                    <form >
                         {unfinishedStoryData.map((story) => {
                             return (
                                 <div>
-                                    <UnfinishedStory key={story._id} title={story.title} />
+                                    <Link to={`/create-story/${story._id}`}>
+                                        <UnfinishedStory key={story._id} title={story.title} />
+                                    </Link>
                                 </div>
                             )
                         })}
