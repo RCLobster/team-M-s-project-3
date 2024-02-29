@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
 
@@ -39,8 +38,8 @@ const Signup = () => {
 
     return (
         <main>
-            <div class="login-window">
-                <div class="login-box">
+            <div className="login-window">
+                <div className="login-box">
                     <h2>Signup</h2>
                     {data ? (
                         <p>
@@ -51,27 +50,29 @@ const Signup = () => {
 
                         <form className="form signup-form" onSubmit={handleFormSubmit}>
                             <div className="form-group">
-                                <label for="username-signup">Username:</label>
+                                <label htmlFor="username-signup">Username:</label>
                                 <input 
                                 className="form-input" 
                                 placeholder="username"
+                                name="username"
                                 type="text" 
                                 id="name-signup" 
                                 value={formState.username}
                                 onChange={handleChange}/>
                             </div>
-                            <div class="form-group">
-                                <label for="password-signup">Password:</label>
+                            <div className="form-group">
+                                <label htmlFor="password-signup">Password:</label>
                                 <input 
-                                class="form-input" 
+                                className="form-input"
+                                name="password"
                                 type="password" 
                                 placeholder="******"
                                 id="password-signup" 
                                 value={formState.password}
                                 onChange={handleChange}/>
                             </div>
-                            <div class="form-group">
-                                <button class="btn" type="submit">Signup</button>
+                            <div className="form-group">
+                                <button className="btn" type="submit">Signup</button>
                             </div>
                             <Link to="/login">Already have an account? Click here to login!</Link>
                         </form>
