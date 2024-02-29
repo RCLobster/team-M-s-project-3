@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
 
-import { UnfinishedStory } from '../components/UnfinishedStory';
+import UnfinishedStory from '../components/UnfinishedStory';
 import { QUERY_SINGLE_UNFINISHED_STORY, QUERY_UNFINISHED_STORIES } from '../utils/queries';
 
 const StorySelector = () => {
 
     // grab all unfinished stories in DB and store in unfinishedStoryData as array
     const { loading, data } = useQuery(QUERY_UNFINISHED_STORIES);
-    const unfinishedStoryData = data?._id || [];
+    const unfinishedStoryData = data?.unfinishedStories || [];
 
 
     const handleFormSubmit = async (event) => {

@@ -1,1 +1,8 @@
-console.log("Made it to create story page!");
+
+const CreateStory = () => {
+    return (
+        <div>Create Story Page</div>
+    );
+};
+
+export default CreateStory;

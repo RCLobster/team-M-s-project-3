@@ -8,6 +8,7 @@ import Signup from './pages/Signup';
 import CreateStory from './pages/CreateStory';
 import StorySelector from './pages/StorySelector';
 import Story from './pages/Story';
+import Profile from './pages/Profile.jsx';
 import NotFound from './pages/NotFound';
 
 const router = createBrowserRouter([
