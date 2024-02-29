@@ -1,0 +1,41 @@
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.home{
+    text-align: center;
+}
+
+.nav-link {
+    margin: 0 5px;
+    text-decoration: none;
+    color: black;
+    transition: ease-in-out 0.4s;
+    font-weight: bold;
+}
+
+.nav-link:hover{
+    color: blueviolet;
+}
+
+footer{
+    display: flex;
+    align-items: flex-end;
+    width: 100vw;
+
+}
+
+#githubsvg{
+    position: fixed;
+    bottom: 0;
+    left: 49.4vw;
+    display: flex;
+    width: 1.5vw;
+    transition: ease-in-out .3s;
+}
+
+#githubsvg:hover{
+    opacity: 0.5;
+}

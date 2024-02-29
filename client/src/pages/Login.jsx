@@ -6,7 +6,7 @@ import { useMutation } from '@apollo/client';
 import Auth from '../utils/auth';
 
 const Login = (props) => {
-    const [formState, setFormState] = useState({ email: '', password: '' });
+    const [formState, setFormState] = useState({ username: '', password: '' });
     const [login, { error, data }] = useMutation(LOGIN_USER);
 
     const handleChange = (event) => {
@@ -39,8 +39,8 @@ const Login = (props) => {
 
     return (
         <main>
-            <div class="login-window">
-                <div class="login-box">
+            <div className="login-window">
+                <div className="login-box">
                     <h2>Login</h2>
                     {data ? (
                         <p>
@@ -48,27 +48,29 @@ const Login = (props) => {
                             <Link to="/">back to the homepage.</Link>
                         </p>
                     ) : (
-                        <form class="form login-form" onSubmit={handleFormSubmit}>
-                            <div class="form-group">
-                                <label for="username-login">Username:</label>
+                        <form className="form login-form" onSubmit={handleFormSubmit}>
+                            <div className="form-group">
+                                <label htmlFor="username-login">Username:</label>
                                 <input
-                                    class="form-input"
+                                    className="form-input"
+                                    placeholder="username"
+                                    name="username"
                                     type="text"
-                                    id="username-login"
                                     value={formState.username}
                                     onChange={handleChange} />
                             </div>
-                            <div class="form-group">
-                                <label for="password-login">Password:</label>
+                            <div className="form-group">
+                                <label htmlFor="password-login">Password:</label>
                                 <input
                                     className="form-input"
+                                    placeholder="******"
+                                    name="password"
                                     type="password"
-                                    id="password-login"
                                     value={formState.password}
                                     onChange={handleChange} />
                             </div>
-                            <div class="form-group">
-                                <button class="btn" type="submit">Login</button>
+                            <div className="form-group">
+                                <button className="btn" type="submit">Login</button>
                             </div>
                             <Link to="/signup">Don't have an account? Click here to sign up!</Link>
                         </form>
