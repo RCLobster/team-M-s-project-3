@@ -14,6 +14,15 @@ const CreateStory = () => {
 
     console.log(story.blanks);
 
+    const handleClick = async (event) => {
+        event.preventDefault();
+
+        console.log(event.target);
+
+        let userInputs = document.getElementsByClassName("userInput");
+        console.log(userInputs);
+    }
+
     return (
         <div>
             <h2>Create Story Page</h2>
@@ -27,7 +36,7 @@ const CreateStory = () => {
                     )
                 })}
             </div>
-            <button className="btn">Submit All</button>
+            <button className="btn" type='submit' onClick={handleClick}>Submit All</button>
         </div>
     );
 };
