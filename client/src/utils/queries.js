@@ -72,7 +72,6 @@ export const QUERY_COMPLETED_STORIES = gql`
       userId
       }
     }
-  }
 `;
 
 export const QUERY_ME = gql`
