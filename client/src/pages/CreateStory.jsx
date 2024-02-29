@@ -1,0 +1,1 @@
+console.log("Made it to create story page!");

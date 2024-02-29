@@ -26,7 +26,7 @@ const router = createBrowserRouter([
         path: '/signup',
         element: <Signup />
       }, {
-        path: '/create-story',
+        path: '/create-story/:storyId',
         element: <CreateStory />
       }, {
         path: '/story-selector',

@@ -2,16 +2,20 @@ import { useState } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
 
 import { UnfinishedStory } from '../components/UnfinishedStory';
+import { QUERY_SINGLE_UNFINISHED_STORY, QUERY_UNFINISHED_STORIES } from '../utils/queries';
 
 const StorySelector = () => {
-    //reference mini project unit 21
-    // query for all unfinished stories
+
+    // grab all unfinished stories in DB and store in unfinishedStoryData as array
+    const { loading, data } = useQuery(QUERY_UNFINISHED_STORIES);
+    const unfinishedStoryData = data?._id || [];
+
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
 
         try {
-            console.log("stuff");
+            navigate(`/create-story/${event.target.key}`);
         } catch (err) {
             console.error(err);
         }
@@ -28,8 +32,13 @@ const StorySelector = () => {
                     <div>Loading...</div>
                 ) : (
                     <form onSubmit={handleFormSubmit}>
-                        <UnfinishedStory title="Go to the ___" />
-                        <UnfinishedStory title="Over the ___" />
+                        {unfinishedStoryData.map((story) => {
+                            return (
+                                <div>
+                                    <UnfinishedStory key={story._id} /*title={story.title} */ />
+                                </div>
+                            )
+                        })}
                     </form>
                 )}
             </div>
