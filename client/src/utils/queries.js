@@ -30,6 +30,7 @@ export const QUERY_SINGLE_UNFINISHED_STORY = gql`
   query getSingleUnfinishedStory($storyId: ID!) {
     unfinishedStory(storyId: $storyId) {
       _id
+      title
       unfinishedText
       blanks {
         _id
@@ -43,6 +44,7 @@ export const QUERY_UNFINISHED_STORIES = gql`
   query getUnfinishedStories {
     unfinishedStories {
       _id
+      title
       unfinishedText
       blanks {
         _id
