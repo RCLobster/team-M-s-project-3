@@ -10,7 +10,7 @@ const resolvers = {
             return User.findOne({ username }).populate('stories');
         },
         unfinishedStory: async (parent, { storyId }) => {
-            return UnfinishedStory.findOne({ storyId });
+            return UnfinishedStory.findOne({ _id: storyId });
         },
         unfinishedStories: async () => {
             return UnfinishedStory.find();

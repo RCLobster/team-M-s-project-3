@@ -27,9 +27,9 @@ const StorySelector = () => {
                     <form >
                         {unfinishedStoryData.map((story) => {
                             return (
-                                <div>
+                                <div key={story._id}>
                                     <Link to={`/create-story/${story._id}`}>
-                                        <UnfinishedStory key={story._id} title={story.title} />
+                                        <UnfinishedStory  title={story.title} />
                                     </Link>
                                 </div>
                             )
