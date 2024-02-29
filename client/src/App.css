@@ -3,7 +3,24 @@
     font-family: Helvetica, sans-serif;
 }
 
+:root {
+    --kyogre: #194E8A;
+    --miku: #4ECDC4;
+    --latte: #d6c898;
+    --espresso: #685927;
+    --latias: #FF6B6B;
+    --black: #000000;
+    --smoke: #807f7f80;
+    --deepsmoke: #807f7fbb;
+    --lugia: #dddddd;
+}
+
+.main-body{
+    margin-top: 10vh;
+}
+
 .login-window{
+    margin-top: 10vh;
     text-align: center;
 }
 
@@ -23,6 +40,7 @@ header{
     position: fixed;
     top: 0;
     width: 100vw;
+    background-color: var(--smoke);
 }
 
 header a{
@@ -30,11 +48,8 @@ header a{
 }
 
 .home{
-    text-align: center;
-}
-
-.main-body{
     margin-top: 10vh;
+    text-align: center;
 }
 
 #madlibshome{
@@ -56,16 +71,18 @@ header a{
 
 footer{
     display: flex;
-    align-items: flex-end;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--deepsmoke);
     width: 100vw;
+    height: 4vh;
+    position: fixed;
+    bottom: 0;
 }
 
 #githubsvg{
-    position: fixed;
-    bottom: 0;
-    left: 49.35vw;
     display: flex;
-    transition: ease-in-out .3s;
+    transition: ease-in-out .2s;
     color: black;
 }
 
