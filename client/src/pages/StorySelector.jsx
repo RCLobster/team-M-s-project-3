@@ -11,8 +11,6 @@ const StorySelector = () => {
     const { loading, data } = useQuery(QUERY_UNFINISHED_STORIES);
     const unfinishedStoryData = data?.unfinishedStories || [];
 
-    const navigate = useNavigate();
-
 
     return (
         <div>
