@@ -1,18 +1,52 @@
+* {
+    margin: 0;
+    font-family: Helvetica, sans-serif;
+}
+
+.login-window{
+    text-align: center;
+}
+
+.login-box input,
+.login-box button{
+    margin: 1vh;
+}
+
+input{
+    text-align: center;
+}
+
 header{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+}
+
+header a{
+    margin: 1vh 1vw;
 }
 
 .home{
     text-align: center;
 }
 
+.main-body{
+    margin-top: 10vh;
+}
+
+#madlibshome{
+    color: black;
+    text-decoration: none;
+}
+
 .nav-link {
-    margin: 0 5px;
+    margin: 0 1vw;
     text-decoration: none;
     color: black;
-    transition: ease-in-out 0.4s;
+    transition: ease-in-out 0.2s;
     font-weight: bold;
 }
 
@@ -24,18 +58,17 @@ footer{
     display: flex;
     align-items: flex-end;
     width: 100vw;
-
 }
 
 #githubsvg{
     position: fixed;
     bottom: 0;
-    left: 49.4vw;
+    left: 49.35vw;
     display: flex;
-    width: 1.5vw;
     transition: ease-in-out .3s;
+    color: black;
 }
 
 #githubsvg:hover{
-    opacity: 0.5;
+    color: blueviolet;
 }

@@ -50,7 +50,6 @@ const Login = (props) => {
                     ) : (
                         <form className="form login-form" onSubmit={handleFormSubmit}>
                             <div className="form-group">
-                                <label htmlFor="username-login">Username:</label>
                                 <input
                                     className="form-input"
                                     placeholder="username"
@@ -60,7 +59,6 @@ const Login = (props) => {
                                     onChange={handleChange} />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="password-login">Password:</label>
                                 <input
                                     className="form-input"
                                     placeholder="******"

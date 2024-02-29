@@ -50,26 +50,24 @@ const Signup = () => {
 
                         <form className="form signup-form" onSubmit={handleFormSubmit}>
                             <div className="form-group">
-                                <label htmlFor="username-signup">Username:</label>
-                                <input 
-                                className="form-input" 
-                                placeholder="username"
-                                name="username"
-                                type="text" 
-                                id="name-signup" 
-                                value={formState.username}
-                                onChange={handleChange}/>
+                                <input
+                                    className="form-input"
+                                    placeholder="username"
+                                    name="username"
+                                    type="text"
+                                    id="name-signup"
+                                    value={formState.username}
+                                    onChange={handleChange} />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="password-signup">Password:</label>
-                                <input 
-                                className="form-input"
-                                name="password"
-                                type="password" 
-                                placeholder="******"
-                                id="password-signup" 
-                                value={formState.password}
-                                onChange={handleChange}/>
+                                <input
+                                    className="form-input"
+                                    name="password"
+                                    type="password"
+                                    placeholder="******"
+                                    id="password-signup"
+                                    value={formState.password}
+                                    onChange={handleChange} />
                             </div>
                             <div className="form-group">
                                 <button className="btn" type="submit">Signup</button>
