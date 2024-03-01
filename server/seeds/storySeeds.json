@@ -1,19 +1,67 @@
 [
     {
-        "title": "Who went to the what??",
-        "unfinishedText": "__ __ to the __ to get __",
+        "title": "A __ adventure!",
+        "unfinishedText": "Once upon a __ in a fantastical land of __ __ and __ __, there lived a __ __ named __. With a zest for __ our hero __ embarked on a __ journey to uncover the __ __ hidden beneath the __. Along the way, __ encountered many __ __ who blocked their path. Eventually, after reaching their goal, __ recovered the __ item and returned to their homeland as an __ hero!",
         "blanks": [
             {
-                "blankType": "name"
+                "blankType": "a time of day"
             },
             {
-                "blankType": "verb"
+                "blankType": "an adjective"
             },
             {
-                "blankType": "noun"
+                "blankType": "a plural noun"
             },
             {
-                "blankType": "noun"
+                "blankType": "an adjective"
+            },
+            {
+                "blankType": "a plural noun"
+            },
+            {
+                "blankType": "an adjective"
+            },
+            {
+                "blankType": "a noun"
+            },
+            {
+                "blankType": "a name"
+            },
+            {
+                "blankType": "a verb ending in -ing"
+            },
+            {
+                "blankType": "the same name as before"
+            },
+            {
+                "blankType": "an adjective"
+            },
+            {
+                "blankType": "an adjective"
+            },
+            {
+                "blankType": "a noun"
+            },
+            {
+                "blankType": "a noun"
+            },
+            {
+                "blankType": "the same name as before"
+            },
+            {
+                "blankType": "an adjective"
+            },
+            {
+                "blankType": "a plural noun"
+            },
+            {
+                "blankType": "the same name as before"
+            },
+            {
+                "blankType": "an adjective"
+            },
+            {
+                "blankType": "an adjective"
             }
         ]
     },

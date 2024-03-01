@@ -15,7 +15,7 @@ const StorySelector = () => {
 
     if (Auth.loggedIn()){
         return (
-            <div>
+            <div className="create-story-window">
                 <div>
                     <h2>Select your story!</h2>
                 </div>

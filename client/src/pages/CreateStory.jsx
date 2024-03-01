@@ -51,6 +51,10 @@ const CreateStory = () => {
         } catch (err) {
             console.error(err);
         };
+
+        for (let x=0; x < userInputs.length; x++) {
+            userInputs[x].value = "";
+        }
     };
 
     return (
@@ -61,7 +65,7 @@ const CreateStory = () => {
                 {story?.blanks && story.blanks.map((blank) => {
                     return (
                         <div key={blank._id}>
-                            <StoryBlanks blankType={blank.blankType} />
+                            <StoryBlanks name="inputField" blankType={blank.blankType} />
                         </div>
                     )
                 })}
