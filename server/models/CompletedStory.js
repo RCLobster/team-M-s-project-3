@@ -5,6 +5,6 @@ const completedStorySchema = new Schema({
     userId: String
 });
 
-const CompletedStory = model('CompletedStory', completedStorySchema);
+const CompletedStory = model('CompletedStory', completedStorySchema, "completedStories");
 
 module.exports = CompletedStory;
