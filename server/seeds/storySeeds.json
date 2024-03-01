@@ -66,21 +66,13 @@
         ]
     },
     {
-        "title": "__ over the...?",
-        "unfinishedText": "The __ __ __ over the __",
+        "title": "",
+        "unfinishedText": "",
         "blanks": [
             {
-                "blankType": "adjective"
-            },
-            {
-                "blankType": "noun"
-            },
-            {
-                "blankType": "verb"
-            },
-            {
-                "blankType": "noun"
+                "blankType": ""
             }
+
         ]
     }
 ]
