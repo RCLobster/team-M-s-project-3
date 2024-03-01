@@ -40,9 +40,7 @@ function App() {
     <ApolloProvider client={client}>
       <div>
         <Header />
-        <div className="main-body">
           <Outlet />
-        </div>
         <Footer />
       </div>
     </ApolloProvider>

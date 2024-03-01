@@ -4,7 +4,7 @@ const CompletedStoryList = ({
     stories
 }) => {
     console.log(stories);
-    if (!stories) {
+    if (!stories.length) {
         return <h3>No Stories Yet</h3>;
     }
 
