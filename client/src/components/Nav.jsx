@@ -17,7 +17,7 @@ export default function Nav() {
                     <Link key={2} className="nav-link" to="/story-selector">
                         Create a Story!
                     </Link>,
-                    <Link key={3} className="nav-link" to="/profile">
+                    <Link key={3} className="nav-link" to="/me">
                         Profile
                     </Link>,
                     <Link key={4} className="nav-link" onClick={logout}>

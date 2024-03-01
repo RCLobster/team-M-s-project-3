@@ -19,8 +19,8 @@
 .main-body{
     height: 100vh;
     width: 100vw;
-    background-attachment: fixed;
     background-color: var(--deepsmoke);
+    background-attachment: fixed;
 }
 
 .login-window,
@@ -28,6 +28,7 @@
 .create-story-window,
 .profile-window{
     padding-top: 10vh;
+    padding-bottom: 10vh;
 }
 
 .login-window{
