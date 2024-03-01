@@ -8,6 +8,6 @@ const unfinishedStorySchema = new Schema({
     }]
 });
 
-const UnfinishedStory = model('UnfinishedStory', unfinishedStorySchema);
+const UnfinishedStory = model('UnfinishedStory', unfinishedStorySchema, "unfinishedStories");
 
 module.exports = UnfinishedStory;
