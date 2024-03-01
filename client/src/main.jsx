@@ -36,9 +36,12 @@ const router = createBrowserRouter([
         path: '/story/:id',
         element: <Story />
       }, {
-        path: '/profile',
+        path: '/profile/:username',
         element: <Profile />
-      },
+      }, {
+        path: '/me',
+        element: <Profile />
+      }
     ],
   },
 ]);
