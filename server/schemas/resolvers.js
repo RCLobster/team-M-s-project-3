@@ -53,7 +53,6 @@ const resolvers = {
         },
         createStory: async (parent, { finishedText }, context) => {
             if (context.user) {
-                console.log(context.user);
                 const completedStory = await CompletedStory.create({
                     finishedText,
                     userId: context.user._id,
