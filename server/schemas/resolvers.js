@@ -23,7 +23,7 @@ const resolvers = {
         },
         me: async (parent, args, context) => {
             if (context.user) {
-                return User.findOne({ _id: context.user._id }).populate('completedStories');
+                return User.findOne({ _id: context.user._id }).populate('stories');
             }
             throw AuthenticationError;
         },
@@ -53,7 +53,6 @@ const resolvers = {
         },
         createStory: async (parent, { finishedText }, context) => {
             if (context.user) {
-                console.log(context.user);
                 const completedStory = await CompletedStory.create({
                     finishedText,
                     userId: context.user._id,
