@@ -62,27 +62,33 @@ const CreateStory = () => {
     };
 
     return (
-        <div className="story-blanks">
-            <h2>Create Story Page</h2>
-            <h3>{story.title}</h3>
-            <Form onFinish={handleClick}>
-                {story?.blanks && story.blanks.map((blank) => {
-                    return (
-                        <div key={blank._id}>
-                            <StoryBlanks name="inputField" blankType={blank.blankType} />
-                        </div>
-                    )
-                })}
-                <Form.Item>
-                    <Button type='primary' htmlType='submit' onClick={handleClick}>Submit All</Button>
-                </Form.Item>
-            </Form>
+        <div className='flex-parent'>
+            <div className="story-blanks">
+                <h2>Create Story Page</h2>
+                <h3>{story.title}</h3>
+                <Form onFinish={handleClick}>
+                    {story?.blanks && story.blanks.map((blank) => {
+                        return (
+                            <div key={blank._id}>
+                                <StoryBlanks name="inputField" blankType={blank.blankType} />
+                            </div>
+                        )
+                    })}
+                    <Form.Item>
+                        <Button type='primary' htmlType='submit' onClick={handleClick}>Submit All</Button>
+                    </Form.Item>
+                </Form>
 
-            {completeStoryId ? (
-                <CompletedStory completeStoryId={completeStoryId} />
-            ) : (
-                <div></div>
-            )}
+
+            </div>
+
+            <div className='finished-story'>
+                {completeStoryId ? (
+                    <CompletedStory completeStoryId={completeStoryId} />
+                ) : (
+                    <div></div>
+                )}
+            </div>
 
         </div>
     );

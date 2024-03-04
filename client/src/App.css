@@ -48,14 +48,14 @@
     --ocean-grey-fade: #dda818;
     --navy: #BE5600;
     --cloudy-night: #9cbaf196;
-    --lugia: #ffde82;
+    --background: #ffde82;
 
 }
 
 body {
     height: 100%;
     width: 100%;
-    background-color: var(--lugia);
+    background-color: var(--background);
     background-attachment: fixed;
 }
 
@@ -67,7 +67,7 @@ button {
 .home,
 .create-story-window,
 .profile-window,
-.story-blanks {
+.flex-parent {
     padding-top: 10vh;
     padding-bottom: 10vh;
 }
@@ -113,7 +113,6 @@ button {
     text-align: center;
     width: 200px;
 }
-
 
 header {
     display: flex;
@@ -171,11 +170,26 @@ header a {
     margin: 10px;
 }
 
+.flex-parent{
+    display: flex;
+}
+
 .story-blanks {
     display: flex;
+    flex: 1 0 50%;
     justify-content: center;
     text-align: center;
     flex-direction: column;
+}
+
+.finished-story{
+    flex: 1 0 40%;
+    font-size: 200%;
+    padding-right: 10%;
+}
+
+.finished-story p{
+    text-align: justify;
 }
 
 .story-blanks h2,
@@ -205,8 +219,8 @@ header a {
     text-align: center;
 }
 
-.profile-window div {
-    margin: 20px;
+.card-body {
+    margin: 2%;
 }
 
 .profile-window p {
