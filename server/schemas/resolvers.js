@@ -51,9 +51,10 @@ const resolvers = {
 
             return { token, user };
         },
-        createStory: async (parent, { finishedText }, context) => {
+        createStory: async (parent, { title, finishedText }, context) => {
             if (context.user) {
                 const completedStory = await CompletedStory.create({
+                    title,
                     finishedText,
                     userId: context.user._id,
                 });

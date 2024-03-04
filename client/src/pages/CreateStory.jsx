@@ -6,7 +6,7 @@ import { CREATE_STORY } from '../utils/mutations';
 import StoryBlanks from '../components/StoryBlanks';
 import Auth from '../utils/auth';
 import CompletedStory from '../components/CompletedStory';
-import { Button, Form, Input, Radio } from 'antd';
+import { Button, Form, Input } from 'antd';
 
 const CreateStory = () => {
     const [completeStoryId, setCompleteStoryId] = useState("");
@@ -26,6 +26,7 @@ const CreateStory = () => {
     const story = data?.unfinishedStory || [];
 
     let finishedText = story.unfinishedText;
+    let title = story.title;
 
     const handleClick = async (event) => {
         event.preventDefault();
@@ -39,10 +40,12 @@ const CreateStory = () => {
         };
 
         console.log(finishedText);
+        console.log(story.title);
 
         try {
             const { data } = await createStory({
                 variables: {
+                    title: title,
                     finishedText: finishedText,
                 }
             });

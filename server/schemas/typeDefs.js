@@ -15,6 +15,7 @@ const typeDefs = `
 
   type CompletedStory {
     _id: ID
+    title: String
     finishedText: String
     userId: String
   }
@@ -42,7 +43,7 @@ const typeDefs = `
   type Mutation {
     addUser(username: String!, password: String!): Auth
     login(username: String!, password: String!): Auth
-    createStory(finishedText: String!): CompletedStory
+    createStory(title: String!, finishedText: String!): CompletedStory
   }
 `;
 
