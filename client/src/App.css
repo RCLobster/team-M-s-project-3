@@ -206,6 +206,17 @@ header a {
     text-align: justify;
 }
 
+.error-page {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-size: 300%;
+}
+
+.error-page-title {
+    margin: 10px 10px;
+}
+
 footer {
     display: flex;
     justify-content: center;
