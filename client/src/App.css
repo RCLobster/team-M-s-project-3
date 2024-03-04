@@ -204,7 +204,7 @@ header a {
 }
 
 .nav-link:hover {
-    color: blueviolet;
+    color: #1e64a5;
 }
 
 .finished-text {
@@ -256,5 +256,5 @@ footer {
 }
 
 #githubsvg:hover {
-    color: blueviolet;
+    color: #1e64a5;
 }
