@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
+import { Input, Button, Form } from 'antd';
 
 import Auth from '../utils/auth';
 
@@ -48,9 +49,9 @@ const Signup = () => {
                         </p>
                     ) : (
 
-                        <form className="form signup-form" onSubmit={handleFormSubmit}>
-                            <div className="form-group">
-                                <input
+                        <Form className="form signup-form" onSubmit={handleFormSubmit}>
+                            <Form.Item className="form-group">
+                                <Input
                                     className="form-input"
                                     placeholder="username"
                                     name="username"
@@ -58,9 +59,9 @@ const Signup = () => {
                                     id="name-signup"
                                     value={formState.username}
                                     onChange={handleChange} />
-                            </div>
-                            <div className="form-group">
-                                <input
+                            </Form.Item>
+                            <Form.Item className="form-group">
+                                <Input
                                     className="form-input"
                                     name="password"
                                     type="password"
@@ -68,12 +69,12 @@ const Signup = () => {
                                     id="password-signup"
                                     value={formState.password}
                                     onChange={handleChange} />
-                            </div>
-                            <div className="form-group">
-                                <button className="btn" type="submit">Signup</button>
-                            </div>
+                            </Form.Item>
+                            <Form.Item className="form-group">
+                                <Button className="btn" type="primary" htmlType='submit'>Signup</Button>
+                            </Form.Item>
                             <Link to="/login">Already have an account? Click here to login!</Link>
-                        </form>
+                        </Form>
                     )}
                     {error && (
                         <div className="my-3 p-3 bg-danger text-white">

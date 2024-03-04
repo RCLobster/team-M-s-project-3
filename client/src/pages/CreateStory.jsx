@@ -6,6 +6,7 @@ import { CREATE_STORY } from '../utils/mutations';
 import StoryBlanks from '../components/StoryBlanks';
 import Auth from '../utils/auth';
 import CompletedStory from '../components/CompletedStory';
+import { Button, Form, Input, Radio } from 'antd';
 
 const CreateStory = () => {
     const [completeStoryId, setCompleteStoryId] = useState("");
@@ -52,16 +53,16 @@ const CreateStory = () => {
             console.error(err);
         };
 
-        for (let x=0; x < userInputs.length; x++) {
+        for (let x = 0; x < userInputs.length; x++) {
             userInputs[x].value = "";
         }
     };
 
     return (
-        <div className="create-story-window">
+        <div className="story-blanks">
             <h2>Create Story Page</h2>
             <h3>{story.title}</h3>
-            <div>
+            <Form onFinish={handleClick}>
                 {story?.blanks && story.blanks.map((blank) => {
                     return (
                         <div key={blank._id}>
@@ -69,11 +70,13 @@ const CreateStory = () => {
                         </div>
                     )
                 })}
-            </div>
-            <button className="btn" type='submit' onClick={handleClick}>Submit All</button>
+                <Form.Item>
+                    <Button type='primary' htmlType='submit' onClick={handleClick}>Submit All</Button>
+                </Form.Item>
+            </Form>
 
             {completeStoryId ? (
-                <CompletedStory completeStoryId={ completeStoryId }/>
+                <CompletedStory completeStoryId={completeStoryId} />
             ) : (
                 <div></div>
             )}

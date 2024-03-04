@@ -1,8 +1,10 @@
+import { Input, Form } from "antd";
+
 export default function StoryBlanks({ blankType }) {
     return (
-        <div>
+        <Form.Item>
             <p>Give me {blankType}</p>
-            <input className="userInput" placeholder="Type here!" name="inputField"></input>
-        </div>
+            <Input className="userInput" placeholder="Type here!" name="inputField"></Input>
+        </Form.Item>
     )
 }

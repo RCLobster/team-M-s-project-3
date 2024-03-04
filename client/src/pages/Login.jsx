@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom'
 import { LOGIN_USER } from '../utils/mutations';
 import { useMutation } from '@apollo/client';
+import { Input, Button, Form } from 'antd';
 
 import Auth from '../utils/auth';
 
@@ -48,9 +49,9 @@ const Login = (props) => {
                             <Link to="/">back to the homepage.</Link>
                         </p>
                     ) : (
-                        <form className="form login-form" onSubmit={handleFormSubmit}>
+                        <Form className="form login-form" onFinish={handleFormSubmit}>
                             <div className="form-group">
-                                <input
+                                <Input
                                     className="form-input"
                                     placeholder="username"
                                     name="username"
@@ -59,7 +60,7 @@ const Login = (props) => {
                                     onChange={handleChange} />
                             </div>
                             <div className="form-group">
-                                <input
+                                <Input
                                     className="form-input"
                                     placeholder="******"
                                     name="password"
@@ -67,11 +68,11 @@ const Login = (props) => {
                                     value={formState.password}
                                     onChange={handleChange} />
                             </div>
-                            <div className="form-group">
-                                <button className="btn" type="submit">Login</button>
-                            </div>
+                            <Form.Item className="form-group">
+                                <Button className="btn" type="primary" htmlType='submit' onClick={handleFormSubmit}>Login</Button>
+                            </Form.Item>
                             <Link to="/signup">Don't have an account? Click here to sign up!</Link>
-                        </form>
+                        </Form>
                     )}
                     {error && (
                         <div className="my-3 p-3 bg-danger text-white">

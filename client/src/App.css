@@ -1,68 +1,147 @@
+@font-face {
+    font-family: "Geist";
+    src: url('./components/fonts/Geist/Geist-Regular.otf');
+    src: url('./components/fonts/Geist/Geist-Regular.otf') format('opentype'),
+        url('./components/fonts/Geist/Geist-Regular.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: "Geist";
+    src: url('./components/fonts/Geist/Geist-Bold.otf');
+    src: url('./components/fonts/Geist/Geist-Bold.otf') format('opentype'),
+        url('./components/fonts/Geist/Geist-Bold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Geist";
+    src: url('./components/fonts/Geist/Geist-Thin.otf');
+    src: url('./components/fonts/Geist/Geist-Thin.otf') format('opentype'),
+        url('./components/fonts/Geist/Geist-Thin.woff2') format('woff2');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Geist Mono";
+    src: url('./components/fonts/Geist.Mono/GeistMono-Regular.otf');
+    src: url('./components/fonts/Geist.Mono/GeistMono-Regular.otf') format('opentype'),
+        url('./components/fonts/Geist.Mono/GeistMono-Regular.woff2') format('woff2');
+}
+
 * {
     margin: 0;
-    font-family: Helvetica, sans-serif;
+    font-family: "Geist", sans-serif;
 }
 
 :root {
-    --kyogre: #194E8A;
-    --miku: #4ECDC4;
-    --latte: #d6c898;
-    --espresso: #685927;
-    --latias: #FF6B6B;
     --black: #000000;
-    --deepgrey: #313131;
-    --smoke: #807f7f80;
-    --deepsmoke: #807f7fbb;
-    --lugia: #dddddd;
+    --ocean-grey: #0C1821;
+    --ocean-grey-fade: #0c18218f;
+    --navy: #1B2A41;
+    --cloudy-night: #324A5F;
+    --lugia: #52505c;
+    --clear: #00000000;
 }
 
-body{
-    height: 100vh;
-    width: 100vw;
-    background-color: var(--deepsmoke);
+body {
+    height: 100%;
+    width: 100%;
+    background-color: var(--lugia);
     background-attachment: fixed;
+}
+
+button {
+    width: fit-content;
 }
 
 .login-window,
 .home,
 .create-story-window,
-.profile-window{
+.profile-window,
+.story-blanks {
     padding-top: 10vh;
     padding-bottom: 10vh;
 }
 
-.login-window{
-    text-align: center;
+.login-window {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
 }
 
+.login-box {
+    text-align: center;
+    background-color: var(--cloudy-night);
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    display: block;
+}
+
+.login-box a {
+    color: var(--black);
+}
+
+.login-box a,
 .login-box input,
-.login-box button{
-    margin: 1vh;
+.login-box button {
+    margin: 10px;
 }
 
-input{
+.login-box input {
+    margin: 1vh;
+    width: 80%;
     text-align: center;
 }
 
-header{
+
+.userInput {
+    text-align: center;
+    width: 200px;
+}
+
+
+header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: fixed;
     top: 0;
-    width: 100vw;
-    background-color: var(--deepgrey);
+    z-index: 2;
+    width: 100%;
+    background: linear-gradient(var(--black) 90%, var(--clear) 100%);
 }
 
-header a{
+header h1,
+header a {
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+
+header a {
     margin: 1vh 1vw;
 }
 
-.home{
+.home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 80vh;
     text-align: center;
 }
 
-#madlibshome{
+.home h1{
+    margin: 20px;
+}
+
+#madlibshome {
     color: white;
     text-decoration: none;
 }
@@ -75,27 +154,75 @@ header a{
     font-weight: bold;
 }
 
-.nav-link:hover{
+.create-story-window {
+    height: 100%;
+}
+
+.create-story-window div {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+.story-blanks {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.story-blanks h2,
+.story-blanks h3,
+.story-blanks input,
+.story-blanks button {
+    margin: 10px;
+}
+
+.story-blanks input {
+    width: 200px;
+}
+
+.nav-link:hover {
     color: blueviolet;
 }
 
-footer{
+.finished-text {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 20px;
+    flex-grow: 1 0 50%;
+}
+
+.profile-window {
+    text-align: center;
+}
+
+.profile-window div {
+    margin: 20px;
+}
+
+.profile-window p {
+    text-align: justify;
+}
+
+footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--deepsmoke);
-    width: 100vw;
+    background: linear-gradient(var(--clear) 0%, var(--cloudy-night) 15%);
+    width: 100%;
     height: 4vh;
     position: fixed;
     bottom: 0;
 }
 
-#githubsvg{
+#githubsvg {
     display: flex;
     transition: ease-in-out .2s;
     color: black;
 }
 
-#githubsvg:hover{
+#githubsvg:hover {
     color: blueviolet;
 }
