@@ -1,6 +1,7 @@
 const { Schema, model } = require('mongoose');
 
 const completedStorySchema = new Schema({
+    title: String,
     finishedText: String,
     userId: String
 });

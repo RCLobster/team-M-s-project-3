@@ -49,7 +49,7 @@ const Signup = () => {
                         </p>
                     ) : (
 
-                        <Form className="form signup-form" onSubmit={handleFormSubmit}>
+                        <Form className="form signup-form" onFinish={handleFormSubmit}>
                             <Form.Item className="form-group">
                                 <Input
                                     className="form-input"
@@ -70,14 +70,14 @@ const Signup = () => {
                                     value={formState.password}
                                     onChange={handleChange} />
                             </Form.Item>
-                            <Form.Item className="form-group">
-                                <Button className="btn" type="primary" htmlType='submit'>Signup</Button>
+                            <Form.Item>
+                                <Button type="primary" htmlType='submit'>Signup</Button>
                             </Form.Item>
                             <Link to="/login">Already have an account? Click here to login!</Link>
                         </Form>
                     )}
                     {error && (
-                        <div className="my-3 p-3 bg-danger text-white">
+                        <div>
                             {error.message}
                         </div>
                     )}

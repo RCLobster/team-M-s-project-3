@@ -6,7 +6,7 @@ import { CREATE_STORY } from '../utils/mutations';
 import StoryBlanks from '../components/StoryBlanks';
 import Auth from '../utils/auth';
 import CompletedStory from '../components/CompletedStory';
-import { Button, Form, Input, Radio } from 'antd';
+import { Button, Form, Input } from 'antd';
 
 const CreateStory = () => {
     const [completeStoryId, setCompleteStoryId] = useState("");
@@ -26,6 +26,7 @@ const CreateStory = () => {
     const story = data?.unfinishedStory || [];
 
     let finishedText = story.unfinishedText;
+    let title = story.title;
 
     const handleClick = async (event) => {
         event.preventDefault();
@@ -39,10 +40,12 @@ const CreateStory = () => {
         };
 
         console.log(finishedText);
+        console.log(story.title);
 
         try {
             const { data } = await createStory({
                 variables: {
+                    title: title,
                     finishedText: finishedText,
                 }
             });
@@ -59,27 +62,33 @@ const CreateStory = () => {
     };
 
     return (
-        <div className="story-blanks">
-            <h2>Create Story Page</h2>
-            <h3>{story.title}</h3>
-            <Form onFinish={handleClick}>
-                {story?.blanks && story.blanks.map((blank) => {
-                    return (
-                        <div key={blank._id}>
-                            <StoryBlanks name="inputField" blankType={blank.blankType} />
-                        </div>
-                    )
-                })}
-                <Form.Item>
-                    <Button type='primary' htmlType='submit' onClick={handleClick}>Submit All</Button>
-                </Form.Item>
-            </Form>
+        <div className='flex-parent'>
+            <div className="story-blanks">
+                <h2>Create Story Page</h2>
+                <h3>{story.title}</h3>
+                <Form onFinish={handleClick}>
+                    {story?.blanks && story.blanks.map((blank) => {
+                        return (
+                            <div key={blank._id}>
+                                <StoryBlanks name="inputField" blankType={blank.blankType} />
+                            </div>
+                        )
+                    })}
+                    <Form.Item>
+                        <Button type='primary' htmlType='submit' onClick={handleClick}>Submit All</Button>
+                    </Form.Item>
+                </Form>
 
-            {completeStoryId ? (
-                <CompletedStory completeStoryId={completeStoryId} />
-            ) : (
-                <div></div>
-            )}
+
+            </div>
+
+            <div className='finished-story'>
+                {completeStoryId ? (
+                    <CompletedStory completeStoryId={completeStoryId} />
+                ) : (
+                    <div></div>
+                )}
+            </div>
 
         </div>
     );

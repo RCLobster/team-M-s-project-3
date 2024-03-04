@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Button } from 'antd';
 
-
 const CompletedStoryList = ({
   stories
 }) => {
@@ -43,7 +42,7 @@ const CompletedStoryList = ({
     <div>
       {stories &&
         stories.map((story) => (
-          <div key={story._id} className="card mb-3">
+          <div key={story._id} className="finished-card mb-3">
             {/* <h4 className="card-header bg-primary text-light p-2 m-0">
               {showUsername ? (
                 <Link
@@ -63,17 +62,14 @@ const CompletedStoryList = ({
                 </>
               )}
             </h4> */}
-            <div className="card-body bg-light p-2">
-              <h2>Story</h2>
+            <div className="card-body">
+              <h2>{story.title}</h2>
               <p>{story.finishedText}</p>
               <Button type="primary" onClick={()=> speackVoice(story.finishedText)}>Hey listen!</Button>
             </div>
-            {/* <Link
-              className="btn btn-primary btn-block btn-squared"
-              to={`/story/${story._id}`}
-            >
-              Click here to view the whole story!
-            </Link> */}
+            <div>
+              <Button type="primary">Expand</Button>
+            </div>
           </div>
         ))
       }

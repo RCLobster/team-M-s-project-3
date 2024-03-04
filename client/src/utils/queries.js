@@ -7,6 +7,7 @@ export const QUERY_USER = gql`
       username
       stories {
         _id
+        title
         finishedText
       }
     }
@@ -20,6 +21,7 @@ query users {
       username
       stories {
         _id
+        title
         finishedText
       }
     }
@@ -58,6 +60,7 @@ export const QUERY_SINGLE_COMPLETED_STORY = gql`
   query getSingleCompletedStory($storyId: ID!) {
     completedStory(storyId: $storyId) {
       _id
+      title
       finishedText
       userId
     }
@@ -68,6 +71,7 @@ export const QUERY_COMPLETED_STORIES = gql`
   query getCompletedStories {
     completedStories {
       _id
+      title
       finishedText
       userId
       }
@@ -81,6 +85,7 @@ export const QUERY_ME = gql`
       username
       stories {
         _id
+        title
         finishedText
       }
     }

@@ -36,19 +36,26 @@
 }
 
 :root {
-    --black: #000000;
+    /* --black: #000000;
     --ocean-grey: #0C1821;
     --ocean-grey-fade: #0c18218f;
     --navy: #1B2A41;
     --cloudy-night: #324A5F;
-    --lugia: #52505c;
+    --lugia: #52505c; */
     --clear: #00000000;
+
+    --black: #e99000;
+    --ocean-grey-fade: #dda818;
+    --navy: #BE5600;
+    --cloudy-night: #9cbaf196;
+    --background: #ffde82;
+
 }
 
 body {
     height: 100%;
     width: 100%;
-    background-color: var(--lugia);
+    background-color: var(--background);
     background-attachment: fixed;
 }
 
@@ -60,7 +67,7 @@ button {
 .home,
 .create-story-window,
 .profile-window,
-.story-blanks {
+.flex-parent {
     padding-top: 10vh;
     padding-bottom: 10vh;
 }
@@ -106,7 +113,6 @@ button {
     text-align: center;
     width: 200px;
 }
-
 
 header {
     display: flex;
@@ -164,11 +170,26 @@ header a {
     margin: 10px;
 }
 
+.flex-parent{
+    display: flex;
+}
+
 .story-blanks {
     display: flex;
+    flex: 1 0 50%;
     justify-content: center;
     text-align: center;
     flex-direction: column;
+}
+
+.finished-story{
+    flex: 1 0 40%;
+    font-size: 200%;
+    padding-right: 10%;
+}
+
+.finished-story p{
+    text-align: justify;
 }
 
 .story-blanks h2,
@@ -183,7 +204,7 @@ header a {
 }
 
 .nav-link:hover {
-    color: blueviolet;
+    color: #1e64a5;
 }
 
 .finished-text {
@@ -198,12 +219,23 @@ header a {
     text-align: center;
 }
 
-.profile-window div {
-    margin: 20px;
+.card-body {
+    margin: 2%;
 }
 
 .profile-window p {
     text-align: justify;
+}
+
+.error-page {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-size: 300%;
+}
+
+.error-page-title {
+    margin: 10px 10px;
 }
 
 footer {
@@ -224,5 +256,5 @@ footer {
 }
 
 #githubsvg:hover {
-    color: blueviolet;
+    color: #1e64a5;
 }
