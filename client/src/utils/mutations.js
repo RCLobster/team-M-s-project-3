@@ -25,9 +25,10 @@ export const ADD_USER = gql`
 `;
 
 export const CREATE_STORY = gql`
-  mutation createStory($finishedText: String!) {
-    createStory(finishedText: $finishedText) {
+  mutation createStory($title: String!, $finishedText: String!) {
+    createStory(title: $title, finishedText: $finishedText) {
       _id
+      title
       finishedText
       userId
     }
