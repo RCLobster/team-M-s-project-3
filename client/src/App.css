@@ -36,13 +36,20 @@
 }
 
 :root {
-    --black: #000000;
+    /* --black: #000000;
     --ocean-grey: #0C1821;
     --ocean-grey-fade: #0c18218f;
     --navy: #1B2A41;
     --cloudy-night: #324A5F;
-    --lugia: #52505c;
+    --lugia: #52505c; */
     --clear: #00000000;
+
+    --black: #e99000;
+    --ocean-grey-fade: #dda818;
+    --navy: #BE5600;
+    --cloudy-night: #9cbaf196;
+    --lugia: #ffde82;
+
 }
 
 body {

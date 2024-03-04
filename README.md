@@ -11,7 +11,7 @@ Run "npm i" in the command line to install all package dependencies.
 Run "npm run develop" to boot up the server and start interacting with the website.
 
 ## License
-N/A
+
 
 ## Contributors
 Mike Berry
