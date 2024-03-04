@@ -10,7 +10,7 @@ export default function CompletedStory({ completeStoryId }) {
     const finishedStory = data?.completedStory.finishedText || "";
 
     return (
-        <div>
+        <div className="finished-text">
             <p>{finishedStory}</p>
             <Speech
                 text={finishedStory}

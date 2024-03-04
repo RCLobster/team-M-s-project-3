@@ -1,9 +1,11 @@
-export default function UnfinishedStory({title}) {
+import { Button } from "antd";
+
+export default function UnfinishedStory({ title }) {
     return (
         <div>
-            <button className="btn"  type="confirm">
+            <Button className="btn" type="primary">
                 {title}
-            </button>
+            </Button>
         </div>
     )
 };
