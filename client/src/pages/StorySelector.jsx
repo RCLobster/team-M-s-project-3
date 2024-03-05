@@ -27,6 +27,8 @@ const StorySelector = () => {
                         <form >
                             {unfinishedStoryData.map((story) => {
                                 return (
+                                    // renders a button for each unifinishedStory in the array
+                                    // clicking on a button navigates to /create-story/:storyId where user can fill in the blanks associated with that story
                                     <div key={story._id}>
                                         <Link to={`/create-story/${story._id}`}>
                                             <UnfinishedStory  title={story.title} />
