@@ -54,25 +54,6 @@ const CompletedStoryList = ({
       {stories &&
         stories.map((story) => (
           <div key={story._id} className="finished-card">
-            {/* <h4 className="card-header bg-primary text-light p-2 m-0">
-              {showUsername ? (
-                <Link
-                  className="text-light"
-                  to={`/profiles/${story.userId}`}
-                >
-                  {thought.thoughtAuthor} <br />
-                  <span style={{ fontSize: '1rem' }}>
-                    had this thought on {thought.createdAt}
-                  </span>
-                </Link>
-              ) : (
-                <>
-                  <span style={{ fontSize: '1rem' }}>
-                    You had this thought on {thought.createdAt}
-                  </span>
-                </>
-              )}
-            </h4> */}
             <div className={`card-body ${expandedStoryId === story._id ? 'active' : ''}`}>
               <h2>{story.title}</h2>
               <p>{story.finishedText}</p>
