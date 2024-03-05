@@ -17,10 +17,13 @@ export default function Nav() {
                     <Link key={2} className="nav-link" to="/story-selector">
                         Create a Story!
                     </Link>,
-                    <Link key={3} className="nav-link" to="/me">
+                    <Link key={3} className="nav-link" to="/stories">
+                        All Stories
+                    </Link>,
+                    <Link key={4} className="nav-link" to="/me">
                         Profile
                     </Link>,
-                    <Link key={4} className="nav-link" onClick={logout}>
+                    <Link key={5} className="nav-link" onClick={logout}>
                         Logout
                     </Link>
                 ]}
@@ -36,7 +39,10 @@ export default function Nav() {
                     <Link key={2} className="nav-link" to="/story-selector">
                         Create a Story!
                     </Link>,
-                    <Link key={3} className="nav-link" to="/login">
+                    <Link key={3} className="nav-link" to="/stories">
+                        All Stories
+                    </Link>,
+                    <Link key={4} className="nav-link" to="/login">
                         Login
                     </Link>
                 ]}
