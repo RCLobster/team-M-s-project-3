@@ -8,6 +8,8 @@ This is a mad lib generator website. Select a story, fill in the blanks, and enj
 ## Usage
 Use this website for a fun activity with friends.
 
+Deployed Site: https://team-m-s-project-3.onrender.com/
+
 ## Installation
 Run "npm i" in the command line to install all package dependencies.
 Run "npm run develop" to boot up the server and start interacting with the website.
