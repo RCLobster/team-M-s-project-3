@@ -7,12 +7,15 @@ import { Input, Button, Form } from 'antd';
 import Auth from '../utils/auth';
 
 const Signup = () => {
+    // by default, form state is empty input fields for username and password
     const [formState, setFormState] = useState({
         username: '',
         password: '',
     });
+    // when a user signs up, mutate the db to add that user's info to the db
     const [addUser, { error, data }] = useMutation(ADD_USER);
 
+    // when user types into input fields update the fields as they type
     const handleChange = (event) => {
         const { name, value } = event.target;
 
@@ -22,15 +25,18 @@ const Signup = () => {
         });
     };
 
+    // when the signup button is clicked...
     const handleFormSubmit = async (event) => {
         event.preventDefault();
         console.log(formState);
 
+        // call addUser and send over input field values
         try {
             const { data } = await addUser({
                 variables: { ...formState },
             });
 
+            // create a new token with user data
             Auth.login(data.addUser.token);
         } catch (e) {
             console.error(e);

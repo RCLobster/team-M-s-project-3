@@ -7,7 +7,9 @@ import { Input, Button, Form } from 'antd';
 import Auth from '../utils/auth';
 
 const Login = (props) => {
+    // set default form state to be empty input fields for username and password
     const [formState, setFormState] = useState({ username: '', password: '' });
+    // set up token generation with useMutation
     const [login, { error, data }] = useMutation(LOGIN_USER);
 
     const handleChange = (event) => {
@@ -27,11 +29,13 @@ const Login = (props) => {
                 variables: { ...formState },
             });
 
+            // create a user token on login
             Auth.login(data.login.token);
         } catch (e) {
             console.error(e);
         }
 
+        // after pressing login, set username and password input fields to empty
         setFormState({
             username: '',
             password: '',

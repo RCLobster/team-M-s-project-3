@@ -32,6 +32,7 @@ const CreateStory = () => {
 
     const story = data?.unfinishedStory || [];
 
+    // finished text is currently set to a copy of the unfinishedText from db which includes __'s
     let finishedText = story.unfinishedText;
     let title = story.title;
 
@@ -40,8 +41,11 @@ const CreateStory = () => {
 
         console.log(event.target);
 
+        // when the submit button is clicked, create a userInputs array = to all the user data from input fields
         let userInputs = document.getElementsByClassName("userInput");
 
+        // loop thourgh userInputs array and replace each __ with whatever the user input for that spot
+        // finishedText will then hold a completed story text with no __'s
         for (let x = 0; x < userInputs.length; x++) {
             finishedText = finishedText.replace('__', userInputs[x].value)
         };
@@ -49,6 +53,7 @@ const CreateStory = () => {
         console.log(finishedText);
         console.log(story.title);
 
+        // send the newly finished story up to the db with createStory
         try {
             const { data } = await createStory({
                 variables: {
@@ -57,12 +62,14 @@ const CreateStory = () => {
                 }
             });
 
+            // useState to update the id of the created story
             setCompleteStoryId(data.createStory._id);
 
         } catch (err) {
             console.error(err);
         };
 
+        // reset all the user input fields to be empty 
         for (let x = 0; x < userInputs.length; x++) {
             userInputs[x].value = "";
         }
@@ -77,6 +84,7 @@ const CreateStory = () => {
                 <h2>Create Story Page</h2>
                 <h3>{story.title}</h3>
                 <Form onFinish={handleClick}>
+                    {/* map through the queried story blanks and render them on screen */}
                     {story?.blanks && story.blanks.map((blank) => {
                         return (
                             <div key={blank._id}>
@@ -84,6 +92,7 @@ const CreateStory = () => {
                             </div>
                         )
                     })}
+                    {/* create a button at bottom of input fields to submit all user answers */}
                     <Form.Item>
                         <Button type='primary' htmlType='submit' onClick={handleClick}>Submit All</Button>
                     </Form.Item>
@@ -93,9 +102,11 @@ const CreateStory = () => {
             </div>
 
             <div className='finished-story'>
+                {/* if submit button is clicked and a completedStoryId exists, render the finished story on screen with user inputs */}
                 {completeStoryId ? (
                     <CompletedStory completeStoryId={completeStoryId} />
                 ) : (
+                    // else, render an empty div
                     <div></div>
                 )}
             </div>
