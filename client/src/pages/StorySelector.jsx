@@ -13,6 +13,7 @@ const StorySelector = () => {
     const { loading, data } = useQuery(QUERY_UNFINISHED_STORIES);
     const unfinishedStoryData = data?.unfinishedStories || [];
 
+    // if the user is NOT logged in, redirect them to /login
     useEffect(() => {
         if (!Auth.loggedIn()) {
             navigate('/login');
@@ -21,6 +22,7 @@ const StorySelector = () => {
 
     if (!Auth.loggedIn()) return null;
 
+    // if user IS logged in, render the story selector page
     return (
         <div className="create-story-window">
             <div>
@@ -34,6 +36,7 @@ const StorySelector = () => {
                     <form >
                         {unfinishedStoryData.map((story) => {
                             return (
+                                // display each unfinishedStory as a button which links user to /create-story/:storyId
                                 <div key={story._id}>
                                     <Link to={`/create-story/${story._id}`}>
                                         <UnfinishedStory title={story.title} />

@@ -7,6 +7,7 @@ import { QUERY_COMPLETED_STORIES } from "../utils/queries";
 import Auth from "../utils/auth";
 
 const Stories = () => {
+    // query for all completed stories in db
     const { loading, data } = useQuery(QUERY_COMPLETED_STORIES, {
         fetchPolicy: 'no-cache'
     });
@@ -21,7 +22,7 @@ const Stories = () => {
     return (
         <div className='profile-window'>
             <div>
-
+                {/* render all the completed as a list on screen */}
                 <div>
                     <CompletedStoryList
                         stories={stories}

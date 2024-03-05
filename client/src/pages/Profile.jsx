@@ -19,6 +19,7 @@ const Profile = () => {
         return <div className='profile-window'>Loading...</div>;
     }
 
+    // if the user is NOT logged in, render below
     if (!Auth.loggedIn()) {
         return (
             <h4 className='profile-window'>
@@ -28,6 +29,7 @@ const Profile = () => {
         );
     }
 
+    // if the user IS logged in, render their profile and display all their created stories
     return (
         <div className='profile-window'>
             <div>
