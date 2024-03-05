@@ -1,8 +1,8 @@
 import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
-import CompletedStoryList from '../components/CompletedStoryList';
-import { QUERY_ME, QUERY_USER } from "../utils/queries";
+import ProfileStoryList from '../components/ProfileStoryList';
+import { QUERY_ME } from "../utils/queries";
 
 import Auth from "../utils/auth";
 
@@ -38,7 +38,7 @@ const Profile = () => {
                 </h2>
 
                 <div>
-                    <CompletedStoryList
+                    <ProfileStoryList
                         stories={user.stories}
                     />
                 </div>
