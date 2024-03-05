@@ -38,3 +38,14 @@ export const CREATE_STORY = gql`
     }
   }
 `;
+
+export const DELETE_STORY = gql`
+mutation Mutation($storyId: ID!) {
+  deleteStory(storyId: $storyId) {
+    _id
+    stories{
+      _id
+    }
+  }
+}
+`;

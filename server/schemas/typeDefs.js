@@ -47,6 +47,7 @@ const typeDefs = `
     addUser(username: String!, password: String!): Auth
     login(username: String!, password: String!): Auth
     createStory(title: String!, finishedText: String!): CompletedStory
+    deleteStory(storyId: ID!): User
   }
 `;
 

@@ -74,6 +74,22 @@ const resolvers = {
             }
             throw AuthenticationError;
         },
+        deleteStory: async (parent, { storyId }, context) => {
+            if (context.user) {
+                await CompletedStory.findOneAndDelete({ _id: storyId });
+
+                const updatedUser = await User.findOneAndUpdate(
+                    { _id: context.user._id },
+                    { $pull: { stories: { storyId } } },
+                    { new: true }
+                );
+
+
+                return updatedUser;
+            }
+
+            throw AuthenticationError;
+        },
     },
 };
 
