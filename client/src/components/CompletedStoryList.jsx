@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from 'antd';
 
@@ -34,6 +35,16 @@ const CompletedStoryList = ({
     window.speechSynthesis.speak(utterance);
   };
 
+  const [expandedStoryId, setExpandedStoryId] = useState(null);
+
+  const toggleExpand = (storyId) => {
+    if (expandedStoryId === storyId) {
+      setExpandedStoryId(null);
+    } else {
+      setExpandedStoryId(storyId);
+    }
+  };
+
   if (!stories.length) {
     return <h3>No Stories Yet</h3>;
   }
@@ -42,7 +53,7 @@ const CompletedStoryList = ({
     <div>
       {stories &&
         stories.map((story) => (
-          <div key={story._id} className="finished-card mb-3">
+          <div key={story._id} className="finished-card">
             {/* <h4 className="card-header bg-primary text-light p-2 m-0">
               {showUsername ? (
                 <Link
@@ -62,13 +73,13 @@ const CompletedStoryList = ({
                 </>
               )}
             </h4> */}
-            <div className="card-body">
+            <div className={`card-body ${expandedStoryId === story._id ? 'active' : ''}`}>
               <h2>{story.title}</h2>
               <p>{story.finishedText}</p>
-              <Button type="primary" onClick={()=> speackVoice(story.finishedText)}>Hey listen!</Button>
             </div>
-            <div>
-              <Button type="primary">Expand</Button>
+            <div className='card-buttons'>
+              <Button type="primary" onClick={()=> speackVoice(story.finishedText)}>Hey listen!</Button>
+              <Button type="primary" onClick={() => toggleExpand(story._id)}>Expand</Button>
             </div>
           </div>
         ))

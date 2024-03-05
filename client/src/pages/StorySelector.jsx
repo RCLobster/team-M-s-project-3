@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useMutation, useQuery } from '@apollo/client';
 import Auth from '../utils/auth';
@@ -13,35 +13,40 @@ const StorySelector = () => {
     const { loading, data } = useQuery(QUERY_UNFINISHED_STORIES);
     const unfinishedStoryData = data?.unfinishedStories || [];
 
-    if (Auth.loggedIn()){
-        return (
-            <div className="create-story-window">
-                <div>
-                    <h2>Select your story!</h2>
-                </div>
-    
-                <div>
-                    {loading ? (
-                        <div>Loading...</div>
-                    ) : (
-                        <form >
-                            {unfinishedStoryData.map((story) => {
-                                return (
-                                    <div key={story._id}>
-                                        <Link to={`/create-story/${story._id}`}>
-                                            <UnfinishedStory  title={story.title} />
-                                        </Link>
-                                    </div>
-                                )
-                            })}
-                        </form>
-                    )}
-                </div>
+    useEffect(() => {
+        if (!Auth.loggedIn()) {
+            navigate('/login');
+        }
+    }, [navigate]);
+
+    if (!Auth.loggedIn()) return null;
+
+    return (
+        <div className="create-story-window">
+            <div>
+                <h2>Select your story!</h2>
             </div>
-        );
-    } else {
-        navigate('/login');
-    }
+
+            <div>
+                {loading ? (
+                    <div>Loading...</div>
+                ) : (
+                    <form >
+                        {unfinishedStoryData.map((story) => {
+                            return (
+                                <div key={story._id}>
+                                    <Link to={`/create-story/${story._id}`}>
+                                        <UnfinishedStory title={story.title} />
+                                    </Link>
+                                </div>
+                            )
+                        })}
+                    </form>
+                )}
+            </div>
+        </div>
+    );
+
 };
 
 export default StorySelector;
