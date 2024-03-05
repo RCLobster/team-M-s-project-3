@@ -1,6 +1,12 @@
 const { User, CompletedStory, UnfinishedStory } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
 
+// Queries for all combinations of users, unfinished stories, and completed stories
+// Not all of these are accessible by users and were used in development or are future work
+
+// Mutations for signing up, loggin in, and creating a completed story
+// Note that there is nothing to add an unfinished story, those are seeded
+// Completeing a story requires the user to be logged in and will add it to thier profile when completed
 const resolvers = {
     Query: {
         users: async () => {

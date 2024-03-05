@@ -1,5 +1,9 @@
 import { gql } from '@apollo/client';
 
+// Queries for all cominations of users, unfinished stories, and completed stories
+// Not all of these were used, some are potentially used in future work and features
+// Matches backend models/typedefs/resolvers
+
 export const QUERY_USER = gql`
   query user($username: String!) {
     user(username: $username) {

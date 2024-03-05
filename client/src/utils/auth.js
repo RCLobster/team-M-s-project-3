@@ -1,3 +1,6 @@
+// Authentication utils for the front end
+// Taken from previous excercises
+
 import decode from 'jwt-decode';
 
 class AuthService {

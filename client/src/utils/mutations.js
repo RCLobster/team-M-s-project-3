@@ -1,5 +1,9 @@
 import { gql } from '@apollo/client';
 
+// Front end mutations for logging in a user, signing up, and creating a completed story
+// Will take information from the pages and send to the backend
+// Matches backend models/typedefs/resolvers
+
 export const LOGIN_USER = gql`
   mutation login($username: String!, $password: String!) {
     login(username: $username, password: $password) {
