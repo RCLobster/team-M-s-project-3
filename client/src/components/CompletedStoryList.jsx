@@ -5,6 +5,35 @@ const CompletedStoryList = ({
   stories
 }) => {
   console.log(stories);
+
+  const synth = window.speechSynthesis;
+  let voiceArr;
+  voiceArr = synth.getVoices();
+  if ("onvoiceschanged" in synth) {
+    synth.onvoiceschanged = synth.getVoices();
+  } else {
+    synth.getVoices()
+  }
+
+  let speackVoice = async (finishedText) => {
+    const utterance = new SpeechSynthesisUtterance(finishedText)
+    utterance.voice = voiceArr[6];
+    console.log(utterance.voice)
+    let myTimeout;
+
+    function myTimer() {
+      window.speechSynthesis.pause();
+      window.speechSynthesis.resume();
+      myTimeout = setTimeout(myTimer, 1000);
+
+    }
+
+    window.speechSynthesis.cancel();
+    myTimeout = setTimeout(myTimer, 1000);
+    utterance.onend = function () { clearTimeout(myTimeout); }
+    window.speechSynthesis.speak(utterance);
+  };
+
   if (!stories.length) {
     return <h3>No Stories Yet</h3>;
   }
@@ -36,13 +65,15 @@ const CompletedStoryList = ({
             <div className="card-body">
               <h2>{story.title}</h2>
               <p>{story.finishedText}</p>
+              <Button type="primary" onClick={()=> speackVoice(story.finishedText)}>Hey listen!</Button>
             </div>
             <div>
               <Button type="primary">Expand</Button>
             </div>
           </div>
-        ))}
-    </div>
+        ))
+      }
+    </div >
   );
 };
 
