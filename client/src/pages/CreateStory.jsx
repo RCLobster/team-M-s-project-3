@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from '@apollo/client';
-import { useParams } from 'react-router-dom';
+import { useNavigate, Link, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { QUERY_SINGLE_UNFINISHED_STORY } from "../utils/queries";
 import { CREATE_STORY } from '../utils/mutations';
@@ -10,6 +10,7 @@ import { Button, Form, Input } from 'antd';
 
 const CreateStory = () => {
     const [completeStoryId, setCompleteStoryId] = useState("");
+    const navigate = useNavigate();
 
     const { storyId } = useParams();
     console.log(storyId);
@@ -18,6 +19,12 @@ const CreateStory = () => {
     });
 
     const [createStory, { error }] = useMutation(CREATE_STORY);
+
+    useEffect(() => {
+        if (!Auth.loggedIn()) {
+            navigate('/login');
+        }
+    }, [navigate]);
 
     useEffect(() => {
         console.log(completeStoryId);
@@ -60,6 +67,9 @@ const CreateStory = () => {
             userInputs[x].value = "";
         }
     };
+
+    if (loading) return <div>Loading...</div>;
+    if (!Auth.loggedIn()) return null;
 
     return (
         <div className='flex-parent'>

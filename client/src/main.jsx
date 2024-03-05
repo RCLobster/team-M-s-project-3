@@ -7,7 +7,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import CreateStory from './pages/CreateStory';
 import StorySelector from './pages/StorySelector';
-import Story from './pages/Story';
+import Stories from './pages/Stories';
 import Profile from './pages/Profile';
 import NotFound from './pages/NotFound';
 
@@ -33,8 +33,8 @@ const router = createBrowserRouter([
         path: '/story-selector',
         element: <StorySelector />
       }, {
-        path: '/story/:id',
-        element: <Story />
+        path: '/stories',
+        element: <Stories />
       }, {
         path: '/profile/:username',
         element: <Profile />
