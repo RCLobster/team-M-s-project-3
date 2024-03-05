@@ -10,8 +10,13 @@ export default function CompletedStory({ completeStoryId }) {
 
     const finishedStory = data?.completedStory.finishedText || "";
 
+    // Text to speech uses the Web Speech API to generate speech from text
+    // Voices can vary between users
+    // Both system and browser dependent
     const synth = window.speechSynthesis;
     let voiceArr;
+    
+    // If block is for chrome, doesn't load voices on page load
     voiceArr = synth.getVoices();
     if ("onvoiceschanged" in synth) {
         synth.onvoiceschanged = synth.getVoices();
@@ -19,13 +24,22 @@ export default function CompletedStory({ completeStoryId }) {
         synth.getVoices()
     }
 
+    // Speech object is created based on text of completed story
     const utterance = new SpeechSynthesisUtterance(finishedStory);
 
-    utterance.voice = voiceArr[1];
+    // Randomly assign a voice to the speech object, array will be different from user to user
+    const randomIndex = Math.floor(voiceArr.length * Math.random());
+    utterance.voice = voiceArr[randomIndex];
 
     console.log(voiceArr);
 
+    // function for the on click to play the voice
     const speackVoice = async () => {
+
+        // Uses a timer based on quirks in Chrome that limits the length of TTS
+        // Continuously starts and stops the speech playback
+        // Inspired and informed by this thread on stackoverflow: https://stackoverflow.com/questions/21947730/chrome-speech-synthesis-with-longer-texts
+
         var myTimeout;
 
         function myTimer() {

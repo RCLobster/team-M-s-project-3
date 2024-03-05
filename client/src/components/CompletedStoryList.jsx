@@ -7,6 +7,7 @@ const CompletedStoryList = ({
 }) => {
   console.log(stories);
 
+  // Speech synthesis is similar to that in the completed story component
   const synth = window.speechSynthesis;
   let voiceArr;
   voiceArr = synth.getVoices();
@@ -16,9 +17,14 @@ const CompletedStoryList = ({
     synth.getVoices()
   }
 
+  // The onClick function is slightly different since the buttons are mapped through
+  // Speech object is constructed inside the function since the finished text is passed as a parameter
+  // Otherwise functions the same
+  
   let speackVoice = async (finishedText) => {
-    const utterance = new SpeechSynthesisUtterance(finishedText)
-    utterance.voice = voiceArr[6];
+    const utterance = new SpeechSynthesisUtterance(finishedText);
+    const randomIndex = Math.floor(voiceArr.length * Math.random());
+    utterance.voice = voiceArr[randomIndex];
     console.log(utterance.voice)
     let myTimeout;
 
