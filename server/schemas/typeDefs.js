@@ -1,3 +1,6 @@
+// typedefs for accessing the DB
+// matches front end queries/models/resolvers
+
 const typeDefs = `
   type User {
     _id: ID

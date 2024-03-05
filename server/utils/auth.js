@@ -1,8 +1,10 @@
+// Authentication middleware functions, taken from previous in class work
+
 const { GraphQLError } = require('graphql');
 const jwt = require('jsonwebtoken');
 
 const secret = 'mysecretssshhhhhhh';
-const expiration = '2h';
+const expiration = '24h';
 
 module.exports = {
   AuthenticationError: new GraphQLError('Could not authenticate user.', {
@@ -30,8 +32,8 @@ module.exports = {
 
     return req;
   },
-  signToken: function ({ email, username, _id }) {
-    const payload = { email, username, _id };
+  signToken: function ({ username, _id }) {
+    const payload = { username, _id };
     return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
   },
 };
