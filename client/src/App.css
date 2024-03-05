@@ -78,7 +78,7 @@ button {
 
 .login-box {
     text-align: center;
-    background-color: var(--cloudy-night);
+    background-color: var(--sub-background);
     border: 2px solid black;
     border-radius: 10px;
     padding: 10px;
@@ -136,7 +136,7 @@ header a {
     text-align: center;
 }
 
-.home h1{
+.home h1 {
     margin: 20px;
 }
 
@@ -163,7 +163,7 @@ header a {
     margin: 10px;
 }
 
-.flex-parent{
+.flex-parent {
     display: flex;
 }
 
@@ -175,13 +175,13 @@ header a {
     flex-direction: column;
 }
 
-.finished-story{
+.finished-story {
     flex: 1 0 40%;
     font-size: 200%;
     padding-right: 10%;
 }
 
-.finished-story p{
+.finished-story p {
     text-align: justify;
 }
 
@@ -212,8 +212,31 @@ header a {
     text-align: center;
 }
 
+.finished-card {
+    border: solid;
+    border-radius: 8px;
+    margin: 20px;
+}
+
 .card-body {
-    margin: 2%;
+    margin: 0 2%;
+    max-height: 36px;
+    overflow: hidden;
+    transition: ease-in-out 0.5s;
+}
+
+.card-body h2{
+    margin: 5px;
+}
+
+.active {
+    max-height: 800px;
+}
+
+.card-buttons {
+    display: flex;
+    justify-content: space-around;
+    background-color: var(--navy);
 }
 
 .profile-window p {
@@ -235,7 +258,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(var(--clear) 0%, var(--cloudy-night) 15%);
+    background: linear-gradient(var(--clear) 0%, var(--sub-background) 15%);
     width: 100%;
     height: 4vh;
     position: fixed;

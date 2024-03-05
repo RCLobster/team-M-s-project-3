@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom';
+import { Button } from 'antd';
 
 const Home = () => {
     return (
         <div className="home">
             <h1>Welcome to Mad Lib Generator!</h1>
-            <Link to="/story-selector">Get started making a story here!</Link>
+            <Link to="/story-selector"><Button type="primary">Get started making a story here!</Button></Link>
         </div>
     );
 };
