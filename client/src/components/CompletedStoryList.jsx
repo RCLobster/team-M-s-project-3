@@ -17,8 +17,9 @@ const CompletedStoryList = ({
   }
 
   let speackVoice = async (finishedText) => {
-    const utterance = new SpeechSynthesisUtterance(finishedText)
-    utterance.voice = voiceArr[6];
+    const utterance = new SpeechSynthesisUtterance(finishedText);
+    const randomIndex = Math.floor(voiceArr.length * Math.random());
+    utterance.voice = voiceArr[randomIndex];
     console.log(utterance.voice)
     let myTimeout;
 

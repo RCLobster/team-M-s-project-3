@@ -21,8 +21,9 @@ export default function CompletedStory({ completeStoryId }) {
 
     const utterance = new SpeechSynthesisUtterance(finishedStory);
 
-    utterance.voice = voiceArr[1];
-
+    const randomIndex = Math.floor(voiceArr.length * Math.random());
+    utterance.voice = voiceArr[randomIndex];
+    
     console.log(voiceArr);
 
     const speackVoice = async () => {
