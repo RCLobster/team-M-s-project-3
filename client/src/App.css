@@ -39,10 +39,9 @@
     --clear: #00000000;
     --header: #e99000;
     --cream-orange: #dda818;
-    --navy: #BE5600;
+    --buttons-background: #f78425;
     --sub-background: #9cbaf196;
     --background: #ffde82;
-
 }
 
 body {
@@ -229,14 +228,23 @@ header a {
     margin: 5px;
 }
 
+.card-body p{
+    margin-bottom: 8px;
+}
+
 .active {
     max-height: 800px;
 }
 
 .card-buttons {
     display: flex;
-    justify-content: space-around;
-    background-color: var(--navy);
+    justify-content: center;
+    background-color: var(--buttons-background);
+    padding: 5px;
+}
+
+.card-buttons button{
+    margin: 0 10px;
 }
 
 .profile-window p {
@@ -273,4 +281,8 @@ footer {
 
 #githubsvg:hover {
     color: #1e64a5;
+}
+
+@media (max-width: 1024px) {
+    
 }
