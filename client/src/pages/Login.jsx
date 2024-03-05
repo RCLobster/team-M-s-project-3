@@ -54,7 +54,7 @@ const Login = (props) => {
                         </p>
                     ) : (
                         <Form className="form login-form" onFinish={handleFormSubmit}>
-                            <div className="form-group">
+                            <Form.Item className="form-group">
                                 <Input
                                     className="form-input"
                                     placeholder="username"
@@ -62,8 +62,8 @@ const Login = (props) => {
                                     type="text"
                                     value={formState.username}
                                     onChange={handleChange} />
-                            </div>
-                            <div className="form-group">
+                            </Form.Item>
+                            <Form.Item className="form-group">
                                 <Input
                                     className="form-input"
                                     placeholder="******"
@@ -71,7 +71,7 @@ const Login = (props) => {
                                     type="password"
                                     value={formState.password}
                                     onChange={handleChange} />
-                            </div>
+                            </Form.Item>
                             <Form.Item className="form-group">
                                 <Button className="btn" type="primary" htmlType='submit' onClick={handleFormSubmit}>Login</Button>
                             </Form.Item>

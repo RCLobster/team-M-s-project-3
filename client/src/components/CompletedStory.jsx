@@ -21,7 +21,9 @@ export default function CompletedStory({ completeStoryId }) {
 
     const utterance = new SpeechSynthesisUtterance(finishedStory);
 
-    utterance.voice = voiceArr[6];
+    utterance.voice = voiceArr[1];
+
+    console.log(voiceArr);
 
     const speackVoice = async () => {
         var myTimeout;
