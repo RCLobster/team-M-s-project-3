@@ -34,7 +34,7 @@ const Profile = () => {
         <div className='profile-window'>
             <div>
                 <h2>
-                    Viewing {`${user.username}'s`} profile:
+                    Viewing your stories:
                 </h2>
 
                 <div>

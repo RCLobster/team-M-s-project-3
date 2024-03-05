@@ -1,6 +1,6 @@
 import { useMutation, useQuery } from '@apollo/client';
 import { useNavigate, Link, useParams } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { QUERY_SINGLE_UNFINISHED_STORY } from "../utils/queries";
 import { CREATE_STORY } from '../utils/mutations';
 import StoryBlanks from '../components/StoryBlanks';
@@ -11,6 +11,8 @@ import { Button, Form, Input } from 'antd';
 const CreateStory = () => {
     const [completeStoryId, setCompleteStoryId] = useState("");
     const navigate = useNavigate();
+    const completedStoryRef = useRef(null);
+
 
     const { storyId } = useParams();
     console.log(storyId);
@@ -64,6 +66,7 @@ const CreateStory = () => {
 
             // useState to update the id of the created story
             setCompleteStoryId(data.createStory._id);
+            completedStoryRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
 
         } catch (err) {
             console.error(err);
@@ -101,10 +104,13 @@ const CreateStory = () => {
 
             </div>
 
-            <div className='finished-story'>
+            <div className='finished-story' ref={completedStoryRef}>
                 {/* if submit button is clicked and a completedStoryId exists, render the finished story on screen with user inputs */}
                 {completeStoryId ? (
-                    <CompletedStory completeStoryId={completeStoryId} />
+                    <div>
+                        <h2 id='new-story'>Your New Story:</h2>
+                        <CompletedStory completeStoryId={completeStoryId} />
+                    </div>
                 ) : (
                     // else, render an empty div
                     <div></div>
