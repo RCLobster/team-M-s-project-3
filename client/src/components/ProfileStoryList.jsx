@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from 'antd';
 
@@ -13,7 +13,12 @@ const ProfileStoryList = ({
   console.log(stories);
   const { loading, data } = useQuery(QUERY_ME);
   const [deleteStory, { error }] = useMutation(DELETE_STORY);
-  const navigate = useNavigate();
+  const [currentStories, setCurrentStories] = useState(stories);
+  
+  useEffect(() => {
+    setCurrentStories(stories);
+  }, [stories]);
+
 
 
   const handleDelete = async (storyId) => {
@@ -28,7 +33,8 @@ const ProfileStoryList = ({
       const { data } = await deleteStory({
         variables: { storyId },
       });
-      window.location.reload();
+      const updatedStories = currentStories.filter(story => story._id !== storyId);
+      setCurrentStories(updatedStories);
     } catch (err) {
       console.error(err);
     }
@@ -84,8 +90,8 @@ const ProfileStoryList = ({
 
   return (
     <div>
-      {stories &&
-        stories.map((story) => (
+      {currentStories &&
+        currentStories.map((story) => (
           <div key={story._id} className="finished-card">
             <div className={`card-body ${expandedStoryId === story._id ? 'active' : ''}`}>
               <h2>{story.title}</h2>
