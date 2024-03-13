@@ -27,7 +27,6 @@ const Signup = () => {
 
     // when the signup button is clicked...
     const handleFormSubmit = async (event) => {
-        event.preventDefault();
         console.log(formState);
 
         // call addUser and send over input field values
